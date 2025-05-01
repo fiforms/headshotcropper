@@ -82,7 +82,13 @@ for filename in os.listdir(INPUT_DIR):
     pil_image = Image.fromarray(crop_box)
     pil_image = pil_image.resize((OUTPUT_SIZE, OUTPUT_SIZE), Image.LANCZOS)
 
-    output_path = os.path.join(OUTPUT_DIR, filename)
-    pil_image.save(output_path)
+    # Ensure output filename has .jpg extension
+    output_filename = os.path.splitext(filename)[0] + ".jpg"
+    output_path = os.path.join(OUTPUT_DIR, output_filename)
+
+    # Save as high-quality JPEG
+    pil_image = pil_image.convert("RGB")  # Ensure compatibility with JPEG
+    pil_image.save(output_path, format="JPEG", quality=99, optimize=True)
     print(f"[OK] Cropped {filename} (multiplier used: {final_crop_size / eye_to_mouth_dist:.2f})")
+
 
