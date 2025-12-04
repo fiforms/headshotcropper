@@ -13,18 +13,6 @@ This script automatically detects faces in headshot photos, aligns them based on
 
 ---
 
-## 📁 Folder Structure
-
-```
-.
-├── headshots/          # Input folder containing your raw images
-├── processed/          # Output folder with cropped and aligned 800x800 images
-├── script.py           # Your cropping script
-└── README.md
-```
-
----
-
 ## ⚙️ Configuration Variables (inside script)
 
 | Variable        | Description                                                                 |
@@ -86,6 +74,22 @@ python headshots.py
 Cropped and resized headshots will be saved in the `processed/` folder.
 
 ---
+
+## 🤡 Goofy Morphing Video
+
+The project has two goofy scripts that can make a video of faces morphing into each other. After processing the faces, 
+choose one as a starting image. Copy it from processed/ into the root and rename it as "reference.jpg"
+Then run
+
+```bash
+python similar_faces.py
+```
+
+This will build a folder called progressive_similar_faces with each shot sorted based on a progressive similarty algorithm. The next step will create the morphing video (requires ffmpeg)
+
+```bash
+python similar_faces_morph.py
+```
 
 ## 📝 Notes
 
