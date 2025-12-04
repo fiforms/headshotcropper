@@ -80,7 +80,7 @@ Note: `face_recognition` depends on `dlib`, which compiles during install. This 
 Place all input headshot images into the `headshots/` folder, then run:
 
 ```bash
-python script.py
+python headshots.py
 ```
 
 Cropped and resized headshots will be saved in the `processed/` folder.
